@@ -369,8 +369,8 @@ MIT License
 
 ## 📧 联系方式
 
-如有问题或合作需求，请通过 Issue 或邮件联系。
+如有问题或合作需求，请通过 Issue 或邮件 3265605854@qq.com 联系。
 
 ---
 
-*Built with ❤️ for smart agriculture.*
+*Developed for modern intelligent agricultural IoT.*
