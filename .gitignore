@@ -1,0 +1,79 @@
+# =====================
+# 操作系统 & 编辑器
+# =====================
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# IDE 与编辑器
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+
+# =====================
+# 编译/构建产物
+# =====================
+# Go 二进制文件
+IoTA_WebServer/IoTA_WebServer
+IOTA_ZZ_server/main-server
+
+# 前端构建产物
+PastoralCloud/dist/
+PastoralCloud/node_modules/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+*.egg-info/
+dist/
+build/
+.eggs/
+
+# =====================
+# 运行时 & 日志
+# =====================
+*.log
+IoTA_WebServer/storage/logs/*
+IOTA_ZZ_server/storage/logs/*
+KONG/PastoralCloud/runs/*/exp*/
+
+# 上传文件（运行时生成）
+IoTA_WebServer/storage/app/uploaded/*
+IoTA_WebServer/public/storage/
+
+# =====================
+# 环境变量 & 敏感配置
+# =====================
+.env
+.env.local
+.env.*.local
+*.env.local
+
+# =====================
+# 临时文件
+# =====================
+*.tmp
+*.temp
+*.cache
+
+# KONG YOLO 模型权重文件（太大，需自行下载）
+KONG/PastoralCloud/runs/
+KONG/PastoralCloud/ultralytics/
+
+# =====================
+# 包管理锁文件
+# =====================
+# package-lock.json 通常应提交（锁定版本）
+# go.sum 通常应提交（锁定版本）

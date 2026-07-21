@@ -1,0 +1,15 @@
+# 数据集路径配置
+path: D:\APP\PyCharm\work\PastoralCloud\datasets  # 数据集根目录
+train: train/images  # 训练集相对路径
+val: val/images      # 验证集相对路径
+test: test/images    # 测试集相对路径
+
+# 类别名称与索引（病虫害子类需完整列出）
+names:
+  0: person                   # 人物
+  1: fire                     # 火灾
+  2: Spodoptera_frugiperda    # 玉米-草地贪夜蛾
+  3: Blast                    # 水稻-稻瘟病 6->3
+  4: Blight                   # 水稻-疫病 7->4
+  5: Brownspot                # 水稻-褐斑病 8->5
+  # ... 其他病虫害子类继续添加

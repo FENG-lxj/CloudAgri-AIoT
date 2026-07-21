@@ -1,0 +1,66 @@
+## MQTT
+#MQTT:
+#  Broker: ws://your-server:8083/mqtt
+#  ClientID: mqtt-go-iot
+#  Username: your-username
+#  Password: your-password
+#  AETopic: Go_IoTAE
+#  ASTopic: Go_IoTAS
+#  ICLogTopic: Go_IoT_Logs
+#  ICHBTopic: Go_IoT_ICHB
+
+
+
+## InfluxDB
+#InfluxDB:
+#  HostUrl: http://your-server:8086
+#  BYZY_TOKEN: your-influxdb-token
+#  FluxOrg: YourOrg
+#  FluxBucket: IOTA
+#  FluxAE: AE
+#  FluxAS: AS
+
+
+## MySQL
+#MySQL:
+#  Host: your-database-host
+#  Port: 3306
+#  User: root
+#  Passwd: your-password
+#  DataBase: iota
+#  Charset: utf8mb4
+
+
+
+# MQTT
+MQTT:
+  Broker: ws://localhost:8083/mqtt
+  ClientID: mqtt-go-iot
+  Username: lisi
+  Password: 1234
+  AETopic: Go_IoTAE
+  ASTopic: Go_IoTAS
+  ICLogTopic: Go_IoT_Logs
+  ICHBTopic: Go_IoT_ICHB
+
+
+
+# InfluxDB
+InfluxDB:
+  HostUrl: http://localhost:8086/
+  BYZY_TOKEN: your-influxdb-token-here
+  FluxOrg: YourOrg
+  FluxBucket: IOTA
+  FluxAE: AE
+  FluxAS: AS
+
+
+
+# MySQL
+MySQL:
+  Host: 127.0.0.1
+  Port: 3306
+  User: root
+  Passwd: 123
+  DataBase: iota
+  Charset: utf8mb4

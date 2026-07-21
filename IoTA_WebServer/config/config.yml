@@ -1,0 +1,94 @@
+AppDebug: true   # 设置程序所处的模式，debug=true 调试模式，日志优先显示在控制台， debug=false 非调试模式，将写入日志文件
+
+HttpServer:
+  Web:
+    Port: ":20201"                 #后端应用类端口,注意前面有冒号
+#     Port: "0.0.0.0:20201"                 #后端应用类端口,注意前面有冒号
+  AllowCrossDomain: true           #是否允许跨域，默认 允许，更多关于跨域的介绍从参考：https://www.yuque.com/xiaofensinixidaouxiang/bkfhct/kxddzd
+  TrustProxies:                    #设置gin可以信任的代理服务器(例如 nginx 前置代理服务器),详情参见文档：https://www.yuque.com/xiaofensinixidaouxiang/bkfhct/vmobe7
+    IsOpen: 0                      # 可选值（0 或者 1）,如果 go 服务是被 nginx 代理，建议该值设置为 1，将 nginx 代理及机器的ip添加到 ProxyServerList 列表
+    ProxyServerList:
+      - "192.168.10.1"             # nginx 代理服务器ip地址
+      - "192.168.10.2"
+
+Token:
+  JwtTokenSignKey: "your-jwt-sign-key-here"     #设置token生成时加密的签名
+  JwtTokenOnlineUsers: 10          #一个账号密码允许最大获取几个有效的token，当超过这个值，第一次获取的token的账号、密码就会失效
+  JwtTokenCreatedExpireAt: 2592000   #创建时token默认有效秒数（token生成时间加上该时间秒数，算做有效期）,3600*8=28800 等于8小时
+  JwtTokenRefreshAllowSec: 86400   #对于过期的token，允许在多少小时之内刷新，超过此时间则不允许刷新换取新token，86400=3600*24，即token过期24小时之内允许换新token
+  JwtTokenRefreshExpireAt: 60   #对于过期的token，支持从相关接口刷新获取新的token，它有效期为10个小时，3600*10=36000 等于10小时
+  BindContextKeyName: "userToken"  #用户在 header 头部提交的token绑定到上下文时的键名，方便直接从上下文(gin.context)直接获取每个用户的id等信息
+  IsCacheToRedis: 1                #用户token是否缓存到redis, 如果已经正确配置了redis,建议设置为1, 开启redis缓存token，（1=用户token缓存到redis; 0=token只存在于mysql）
+
+Redis:
+  Host: "127.0.0.1"
+  Port: 6379
+  Auth: ""
+  MaxIdle: 10
+  MaxActive: 1000
+  IdleTimeout: 60
+  IndexDb: 1      # 注意 redis 默认连接的是 1 号数据库，不是 0号数据库
+  ConnFailRetryTimes: 3    #从连接池获取连接失败，最大重试次数
+  ReConnectInterval: 1     # 从连接池获取连接失败，每次重试之间间隔的秒数
+
+User:
+  Superuser: "your-phone-number" #在此修改超级管理员（手机号）
+
+Dev:
+  DeviceTimeoutPeriod: 60   # 设备超时故障判断时间（分钟）
+
+#AI:
+#  ChatGPT_TOKEN: "your-chatgpt-api-key"
+#  ProxyUrl: "http://127.0.0.1:7890"
+
+#AI:
+#  kimi_Token: "your-kimi-refresh-token"
+#  apiUrl: "http://your-kimi-proxy:8000/v1/chat/completions"
+
+InfluxDB:
+  BYZY_TOKEN: "your-influxdb-token-here"
+  Url: "http://localhost:8086"
+  Org: "Qiyao"        # 组织
+  Bucket: "IOTA"      # 桶
+  MeasureAE: "AE"     # 测量AE
+  MeasureAS: "AS"     # 测量AS
+
+Logs:
+  GinLogName: "/storage/logs/gin.log"                  #设置 gin 框架的接口访问日志
+  GoSkeletonLogName: "/storage/logs/IoTA_WebServer.log"    #设置GoSkeleton项目骨架运行时日志文件名，注意该名称不要与上一条重复 ,避免和 gin 框架的日志掺杂一起，造成混乱。
+  TextFormat: "json"                                   #记录日志的格式，参数选项：console、json ， console 表示一般的文本格式
+  TimePrecision: "millisecond"                         #记录日志时，相关的时间精度，该参数选项：second  、 millisecond ， 分别表示 秒 和 毫秒 ,默认为毫秒级别
+  MaxSize: 10                                          #每个日志的最大尺寸(以MB为单位）， 超过该值，系统将会自动进行切割
+  MaxBackups: 7                                        #保留旧日志最大个数
+  MaxAge: 15                                           #保留旧日志最大天数
+  Compress: false                                      #日志备份时，是否进行压缩
+
+SnowFlake:
+  SnowFlakeMachineId: 2               #如果本项目同时部署在多台机器，并且需要同时使用该算法，请为每一台机器设置不同的ID，区间范围: [0,1023]
+
+FileUploadSetting:
+  Size: 32                            #设置上传文件的最大值，单位：M，注意： 如果go前置nginx服务器，nginx 默认限制文件上传大小为 50 M ,用户上传文件限制还需要继续修改 nginx 配置
+  UploadFileField: "file"            #post上传文件时，表单的键名
+  UploadFileSavePath: "/storage/app/uploaded/" #上传文件保存在路径, 该路径与 BasePath 进行拼接使用
+  UploadFileReturnPath: "/public/storage/uploaded/"  # 文件上后返回的路径，由于程序会自动创建软连接，自动将资源定位到实际路径，所有资源的访问入口建议都从public开始
+  AllowMimeType: #允许的文件mime类型列表
+    - "image/jpeg"                    #jpg、jpeg图片格式
+    - "image/png"                     #png图片格式
+    - "image/x-icon"                  #ico图片
+    - "image/bmp"                     #bmp图片
+    - "application/zip"               #xlsx、docx、zip
+    - "application/x-gzip"            #tar.gz
+    - "text/plain; charset=utf-8"     #txt log json等文本文件
+    - "video/mp4"      #视频文件，例如：mp4
+    - "audio/mpeg"     #音频文件，例如: mp3
+
+AiImageSetting:
+  Size: 5                            #设置上传文件的最大值，单位：M，注意： 如果go前置nginx服务器，nginx 默认限制文件上传大小为 50 M ,用户上传文件限制还需要继续修改 nginx 配置
+  UploadFileField: "AiImage"            #post上传文件时，表单的键名
+  UploadFileSavePath: "/storage/app/uploaded/" #上传文件保存在路径, 该路径与 BasePath 进行拼接使用
+  UploadFileReturnPath: "/public/storage/uploaded/"  # 文件上后返回的路径，由于程序会自动创建软连接，自动将资源定位到实际路径，所有资源的访问入口建议都从public开始
+  AllowMimeType: #允许的文件mime类型列表
+    - "image/jpeg"                    #jpg、jpeg图片格式
+    - "image/png"                     #png图片格式
+    - "image/x-icon"                  #ico图片
+    - "image/bmp"                     #bmp图片
