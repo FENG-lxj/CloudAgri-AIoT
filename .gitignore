@@ -30,6 +30,8 @@ IOTA_ZZ_server/main-server
 # 前端构建产物
 PastoralCloud/dist/
 PastoralCloud/node_modules/
+uniapp/node_modules/
+uniapp/unpackage/
 
 # Python
 __pycache__/

@@ -1,0 +1,109 @@
+{
+	"easycom": {
+			"^u-(.*)": "uview-ui/components/u-$1/u-$1.vue"
+		},
+	"pages": [
+		{
+			"path" : "pages/login/login",
+			"style" : 
+			{
+				"navigationBarTitleText" : "",
+				"enablePullDownRefresh" : false,
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/index/index",
+			"style": {
+				"navigationBarTitleText": "种植环境检测",
+				"navigationBarBackgroundColor": "#262F3E",
+				"navigationBarTextStyle":"white"
+			}
+		},
+		{
+			"path" : "pages/Monitoring_Points/Monitoring_Points",
+			"style" : 
+			{
+				"navigationBarTitleText": "粮仓环境检测",
+				"navigationBarBackgroundColor": "#262F3E",
+				"navigationBarTextStyle":"white"
+			}
+		},
+		{
+			"path" : "pages/GPT/GPT",
+			"style" : 
+			{
+				"navigationBarTitleText" : "",
+				"enablePullDownRefresh" : false,
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path" : "pages/AI_Surveillance/AI_Surveillance",
+			"style": {
+				"navigationBarTitleText": "农田AI监控",
+				"navigationBarBackgroundColor": "#262F3E",
+				"navigationBarTextStyle":"white"
+			}
+		},
+		{
+			"path" : "pages/Settings/Settings",
+			"style" : 
+			{
+				"navigationBarTitleText": "系统设置",
+				"navigationBarBackgroundColor": "#262F3E",
+				"navigationBarTextStyle":"white"
+			}
+		},
+		{
+			"path" : "pages/Settings/superAdmin/superAdmin",
+			"style" : 
+			{
+				"navigationBarTitleText": "系统管理",
+				"navigationBarBackgroundColor": "#262F3E",
+				"navigationBarTextStyle":"white"
+			}
+		},
+		{
+			"path" : "pages/ceshi/ceshi",
+			"style" : 
+			{
+				"navigationBarTitleText" : "",
+				"enablePullDownRefresh" : false
+			}
+		}
+	],
+	"tabBar": {
+		"color": "#000",
+		"selectedColor": "#ff8686",
+		"borderStyle": "black",
+		"backgroundColor": "#ffffff",
+		"height": "0",
+		"list": [
+			{
+				"pagePath": "pages/index/index"
+			},
+			{
+				"pagePath": "pages/Monitoring_Points/Monitoring_Points"
+			},
+			{
+				"pagePath": "pages/GPT/GPT"
+			},
+			{
+				"pagePath": "pages/AI_Surveillance/AI_Surveillance"
+			},
+			{
+				"pagePath": "pages/Settings/Settings"
+			}
+		]
+	},
+	"globalStyle": {
+		"navigationBarTextStyle": "black",
+		"navigationBarTitleText": "uni-app",
+		"navigationBarBackgroundColor": "#F8F8F8",
+		"backgroundColor": "#F8F8F8",
+		"app-plus": {
+			"background": "#efeff4"
+		}
+	}
+}

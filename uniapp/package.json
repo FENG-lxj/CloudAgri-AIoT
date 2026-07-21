@@ -1,0 +1,10 @@
+{
+  "dependencies": {
+    "@amap/amap-jsapi-loader": "^1.0.1",
+    "echarts": "^5.5.0",
+    "flv.js": "^1.6.2",
+    "mqtt": "^3.0.0",
+    "uview-ui": "^2.0.37",
+    "vuex": "^4.1.0"
+  }
+}
